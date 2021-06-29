@@ -1,0 +1,15 @@
+version: "3.7"
+services:
+    rrd_server:
+        image: venyunoc/grafana-rrd-server:latest
+        container_name: server
+        volumes:
+            - "rrd_files:/opt/rrd"
+    grafana:
+        image: venyunoc/grafana:latest
+        container_name: grafana
+        ports: 
+            - "3000:3000"
+volumes:
+    rrd_files:
+        external: true
